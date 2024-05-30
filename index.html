@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assests/css/normalize-min.css">
+    <link rel="stylesheet" href="assests/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>PaintJS</title>
+</head>
+
+<body>
+
+    <section class="container-paint" id="all">
+        <div class="config">
+            <label class="line-size">
+                <input type="radio" name="optionCanvas" value="2">
+                <span></span>
+            </label>
+
+            <label class="line-size">
+                <input type="radio" name="optionCanvas" value="3">
+                <span></span>
+            </label>
+
+            <label class="line-size">
+                <input type="radio" name="optionCanvas" value="5">
+                <span></span>
+            </label>
+
+            <label class="btnErase">
+                <input type="radio" name="optionCanvas">
+                <span><i class="fa-solid fa-eraser"></i></span>
+                    <div class="containerSizeErase">
+                        <input type="range" min="1" max="20" value="10" step="1" id="sizeErase">
+                        <span class="sizeEraseNumber">0px</span>
+                    </div>
+            </label>
+
+            <div class="containerColor">
+                <input type="color" id="colorLine">
+            </div>
+
+            <div id="clearAll">
+                <i class="fa-solid fa-trash"></i></span>
+            </div>
+        </div>
+
+        <canvas width="600" height="350" id="paint"></canvas>""
+    </section>
+
+    <button id="screenShot"><i class="fa-solid fa-floppy-disk"></i></button>
+
+    <script src="assests/js/main.js"></script>
+    <script src="assests/js/focusBtn.js"></script>
+    <script src="assests/js/reloadPage.js"></script>
+
+    <!-- LIB html2canvas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="assests/js/screenShot.js"></script>
+
+</body>
+
+</html>
