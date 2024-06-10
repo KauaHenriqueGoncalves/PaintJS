@@ -23,8 +23,8 @@
     }
 
     function erase(e) {
-        const x = e.clientX - this.offsetLeft;
-        const y = e.clientY - this.offsetTop;
+        const x = ((e.type === 'mousemove')?e.clientX:e.touches[0].clientX) - this.offsetLeft;
+        const y = ((e.type === 'mousemove')?e.clientY:e.touches[0].clientY) - this.offsetTop;
         ctxCanvas.beginPath();
         ctxCanvas.arc(
             x, 
@@ -42,8 +42,8 @@
     const showSizeErase = () => document.querySelector('.sizeEraseNumber').innerHTML = `${getSizeErase()}`;
 
     function draw(e) {
-        const x = e.clientX - this.offsetLeft;
-        const y = e.clientY - this.offsetTop;
+        const x = ((e.type === 'mousemove')?e.clientX:e.touches[0].clientX) - this.offsetLeft;
+        const y = ((e.type === 'mousemove')?e.clientY:e.touches[0].clientY) - this.offsetTop;
         ctxCanvas.beginPath();
         ctxCanvas.arc(
             x,
@@ -84,6 +84,16 @@
     });
 
     document.getElementById('sizeErase').addEventListener('change', showSizeErase);
+
+    // ***** TOUCHSCREEN *****
+    canvas.addEventListener('touchstart', () => {
+        isErase = optionCanvas[3].checked;
+        canvas.addEventListener('touchmove', !(isErase)?draw:erase);
+    });
+
+    canvas.addEventListener('touchend', () => {
+        canvas.removeEventListener('touchmove', !(isErase)?draw:erase); 
+    });
 
     putColorLine();
     showSizeErase();
